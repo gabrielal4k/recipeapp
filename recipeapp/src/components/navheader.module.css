@@ -1,0 +1,8 @@
+.navHeader {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+  color: black;
+  padding: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
