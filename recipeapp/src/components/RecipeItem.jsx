@@ -1,9 +1,16 @@
+import styles from "./recipeItem.module.css";
+
 export default function RecipeItem({ recipe }) {
   return (
-    <div>
-      <img src={recipe.image} alt="picture" />
-      <h4>{recipe.title}</h4>
-      <button>View Recipe</button>
+    <div className={styles.itemContainer}>
+      <img className={styles.itemImage} src={recipe.image} alt="picture" />
+      <div className={styles.itemContent}>
+        <p className={styles.itemName}>{recipe.title}</p>
+      </div>
+
+      <div className={styles.itemButtonContainer}>
+        <button className={styles.itemButton}> View Recipe</button>
+      </div>
     </div>
   );
 }
