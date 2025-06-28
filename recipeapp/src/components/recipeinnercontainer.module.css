@@ -1,3 +1,6 @@
 .innerContainer {
-  background-color: transparent;
+  background-color: whitesmoke;
+  flex: 1;
+  padding: 10px;
+  margin: 10px;
 }
