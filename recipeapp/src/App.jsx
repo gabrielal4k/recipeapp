@@ -9,7 +9,7 @@ import RecipeDetails from "./components/RecipeDetails";
 import Container from "./components/Container";
 function App() {
   const [recipes, setRecipes] = useState([]);
-  const [recipeID, setRecipeID] = useState("");
+  const [recipeID, setRecipeID] = useState(642583);
 
   return (
     <div className="App">
