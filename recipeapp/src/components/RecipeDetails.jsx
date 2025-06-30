@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import styles from "./recipedetails.module.css";
 export default function RecipeDetails({ recipeID }) {
   const URL = `https://api.spoonacular.com/recipes/${recipeID}/information`;
   const API_KEY = "f88265a0cd47446497613e3f91bb8964";
@@ -25,36 +26,50 @@ export default function RecipeDetails({ recipeID }) {
 
   return (
     <div>
-      <div>
-        <h1>{recipeInfo.title}</h1>
-        <img src={recipeInfo.image} alt="image" />
+      <div className={styles.recipeCard}>
+        <h1 className={styles.recipeName}>{recipeInfo.title}</h1>
+        <img
+          className={styles.recipeImage}
+          src={recipeInfo.image}
+          alt="image"
+        />
 
-        <div>
-          <span>⏰ {recipeInfo.readyInMinutes}</span>
+        <div className={styles.recipeDetails}>
+          <span>
+            <strong>⏰ {recipeInfo.readyInMinutes} Minutes</strong>
+          </span>
           <span>
             <strong>👯 Servings:</strong> {recipeInfo.servings}
           </span>
 
           <span>
-            {" "}
-            {recipeInfo.vegetarian ? "🥬 Vegetarian" : "Not-Vegetarian"}
+            <strong>
+              {recipeInfo.vegetarian ? "🥬 Vegetarian" : "Not-Vegetarian"}
+            </strong>
           </span>
-          <span>{recipeInfo.vegan ? "🐮 Vegan" : "Not-Vegan"}</span>
+          <span>
+            <strong>{recipeInfo.vegan ? "🐮 Vegan" : "Not-Vegan"}</strong>
+          </span>
         </div>
 
         <div>
-          <span>💲{recipeInfo.pricePerServing / 100} Per serving</span>
+          <span>
+            <strong>💲{recipeInfo.pricePerServing / 100} Per serving</strong>
+          </span>
         </div>
 
-        <div>
-          <h2>Instructions</h2>
-          {flagLoading ? (
-            <p>Loading.....</p>
-          ) : (
-            recipeInfo.analyzedInstructions[0].steps.map((step) => (
-              <li key={step.step}>{step.step}</li>
-            ))
-          )}
+        <h2>Instructions</h2>
+
+        <div className={styles.recipeInstructions}>
+          <ol>
+            {flagLoading ? (
+              <p>Loading.....</p>
+            ) : (
+              recipeInfo.analyzedInstructions[0].steps.map((step) => (
+                <li key={step.step}>{step.step}</li>
+              ))
+            )}
+          </ol>
         </div>
       </div>
     </div>
