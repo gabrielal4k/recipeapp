@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styles from "./recipedetails.module.css";
+import IngredientsList from "./IngredientsList";
 export default function RecipeDetails({ recipeID }) {
   const URL = `https://api.spoonacular.com/recipes/${recipeID}/information`;
   const API_KEY = "f88265a0cd47446497613e3f91bb8964";
@@ -57,7 +58,8 @@ export default function RecipeDetails({ recipeID }) {
             <strong>💲{recipeInfo.pricePerServing / 100} Per serving</strong>
           </span>
         </div>
-
+        <h2>Ingredients</h2>
+        <IngredientsList recipeInfo={recipeInfo} flagLoading={flagLoading} />
         <h2>Instructions</h2>
 
         <div className={styles.recipeInstructions}>
